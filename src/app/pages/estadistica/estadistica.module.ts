@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RegisterPageRoutingModule } from './register-routing.module';
+import { EstadisticaPageRoutingModule } from './estadistica-routing.module';
 
-import { RegisterPage } from './register.page';
+import { EstadisticaPage } from './estadistica.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RegisterPageRoutingModule
+    EstadisticaPageRoutingModule
   ],
-  declarations: [RegisterPage]
+  declarations: [EstadisticaPage]
 })
-export class RegisterPageModule {}
+export class EstadisticaPageModule {}

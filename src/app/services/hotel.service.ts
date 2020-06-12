@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Hotel } from '../model/hotel';
-import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
+import { AngularFirestore, DocumentReference, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { User } from '../model/user';
 
@@ -10,7 +10,25 @@ import { User } from '../model/user';
 })
 export class HotelService {
 
-  constructor(private db: AngularFirestore) { }
+  private hotelsCollection: AngularFirestoreCollection<Hotel>;
+  private hotels: Observable<Hotel[]>;
+
+  constructor(private db: AngularFirestore) {
+    this.hotelsCollection = db.collection<Hotel>('hotels');
+    this.hotels = this.hotelsCollection.snapshotChanges().pipe(map(
+      actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const idHotel = a.payload.doc.id;
+          return {idHotel, ...data};
+        });
+      }
+    ));
+   }
+
+   getHotel() {
+    return this.hotels;
+  }
 
   public addHotel(hotel: Hotel): Promise<DocumentReference> {
     return this.db.collection<Hotel>('hotels').add(hotel);

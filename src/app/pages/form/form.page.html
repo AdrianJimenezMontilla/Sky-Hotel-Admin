@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="list"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ pageTitle }}</ion-title>
+    <ion-title class="title">{{ pageTitle }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +14,7 @@
     <ion-item>
       <ion-label position="floating">Nombre</ion-label>
       <ion-input
-        readonly="readonly"
+        
         clearInput
         class="text"
         [(ngModel)]="hotel.nombre">
@@ -25,7 +25,7 @@
     <ion-item>
       <ion-label position="floating">Tipo</ion-label>
       <ion-input
-        readonly="readonly"
+        
         clearInput
         class="text"
         [(ngModel)]="hotel.tipo">
@@ -36,7 +36,7 @@
     <ion-item>
       <ion-label position="floating">Descripcion</ion-label>
       <ion-input
-        readonly="readonly"
+        
         clearInput
         class="text"
         [(ngModel)]="hotel.descripcion">
@@ -48,7 +48,7 @@
     <ion-item>
       <ion-label position="floating">Ubicacion</ion-label>
       <ion-input
-        readonly="readonly"
+       
         clearInput
         class="text"
         [(ngModel)]="hotel.ubicacion">
@@ -61,7 +61,7 @@
     <ion-item>
       <ion-label position="floating">Telefono</ion-label>
       <ion-input
-        readonly="readonly"
+      
         clearInput
         class="text"
         [(ngModel)]="hotel.telefono">
@@ -72,13 +72,21 @@
     <ion-item>
       <ion-label position="floating">Precio</ion-label>
       <ion-input
-        readonly="readonly"
+      
         clearInput
         class="text"
         [(ngModel)]="hotel.precio">
       </ion-input>
     </ion-item>
 
+    <ion-item>
+      <ion-label position="floating">URL de la imagen</ion-label>
+      <ion-input
+        class="text"
+        clearInput
+        [(ngModel)]="hotel.imageUrl">
+      </ion-input>
+    </ion-item>
 
 
 

@@ -7,31 +7,22 @@ const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
   { path: 'list',
     loadChildren: () => import('./pages/list/list.module')
-                          .then( m => m.ListPageModule),
-                          ...canActivate(redirectUnauthorizedTo(['login'])) },
+                          .then( m => m.ListPageModule)},
+                          
     
-  { path: 'create-hotel', loadChildren: () => import('./pages/form/form.module') .then( m => m.FormPageModule),
-                          ...canActivate(redirectUnauthorizedTo(['login'])) },
+  { path: 'create-hotel', loadChildren: () => import('./pages/form/form.module') .then( m => m.FormPageModule)},
+                          
   { path: 'edit-hotel/:id', loadChildren: () => import('./pages/form/form.module') .then( m => m.FormPageModule),
-                          ...canActivate(redirectUnauthorizedTo(['login'])) },
+                          },
   {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    path: 'estadistica',
+    loadChildren: () => import('./pages/estadistica/estadistica.module').then( m => m.EstadisticaPageModule)
   },
-  {
-    path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
-  },
-  {
-    path: 'recover-password',
-    loadChildren: () => import('./pages/recover-password/recover-password.module').then( m => m.RecoverPasswordPageModule)
-  },
-  {
-    path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule),
-                            ...canActivate(redirectUnauthorizedTo(['login']))
-    
-  },
+
+
+
+
+
   
 
 

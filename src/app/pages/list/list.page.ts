@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class ListPage implements OnInit {
 
 
+  ciudad: string = '';
 
   hotels: Observable<Hotel[]>;
 
